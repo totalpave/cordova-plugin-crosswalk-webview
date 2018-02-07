@@ -39,7 +39,7 @@ import java.io.IOException;
 
 public class XWalkCordovaResourceClient extends XWalkResourceClient {
 
-	private static final String TAG = "XWalkCordovaResourceClient";
+    private static final String TAG = "XWalkCordovaResourceClient";
     protected XWalkWebViewEngine parentEngine;
 
     public XWalkCordovaResourceClient(XWalkWebViewEngine parentEngine) {
@@ -90,6 +90,10 @@ public class XWalkCordovaResourceClient extends XWalkResourceClient {
                 LOG.e(TAG, "Error occurred while loading a file (returning a 404).", e);
             }
             // Results in a 404.
+            return new WebResourceResponse("text/plain", "UTF-8", null);
+        }
+        catch (Exception e) {
+            LOG.e(TAG, "Unknown erro has occured while loading a file.", e);
             return new WebResourceResponse("text/plain", "UTF-8", null);
         }
     }
