@@ -158,7 +158,7 @@ cdvPluginPostBuildExtras.add({
     println xwalkSpec
 
     dependencies {
-        compile xwalkSpec
+        implementation xwalkSpec
     }
 
     if (file('assets/xwalk-command-line').exists()) {
