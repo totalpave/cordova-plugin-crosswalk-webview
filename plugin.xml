@@ -52,7 +52,7 @@
         <source-file src="platforms/android/libs/xwalk_arm.so" target-dir="src/main/libs/armeabi-v7a" />
         <!-- <source-file src="platforms/android/libs/xwalk_arm64.so" target-dir="src/main/libs/arm64-v8a" /> -->
 
-        <!-- <framework src="platforms/android/xwalk.gradle" custom="true" type="gradleReference"/> -->
+        <framework src="platforms/android/xwalk.gradle" custom="true" type="gradleReference"/>
 
         <hook type="after_plugin_install" src="hooks/after_plugin_install/000-shared_mode_special.js"/>
         <hook type="before_plugin_uninstall" src="hooks/before_plugin_uninstall/000-shared_mode_special.js"/>
