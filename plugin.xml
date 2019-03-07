@@ -49,8 +49,11 @@
         <source-file src="platforms/android/src/org/crosswalk/engine/XWalkCordovaClientCertRequest.java" target-dir="src/org/crosswalk/engine"/>
         <source-file src="platforms/android/src/org/crosswalk/engine/XWalkCordovaHttpAuthHandler.java" target-dir="src/org/crosswalk/engine"/>
 
-        <source-file src="platforms/android/libs/xwalk_arm.so" target-dir="src/main/libs/armeabi-v7a" />
-        <!-- <source-file src="platforms/android/libs/xwalk_arm64.so" target-dir="src/main/libs/arm64-v8a" /> -->
+        <source-file src="platforms/android/libs/xwalkcore_armeabi-v7a.so" target-dir="app/src/main/jniLibs/armeabi-v7a" />
+        <source-file src="platforms/android/libs/xwalkcore_armeabi-v7a.so" target-dir="app/src/main/jniLibs/armeabi" />
+        <source-file src="platforms/android/libs/xwalkcore_armeabi-v7a.so" target-dir="app/src/main/jniLibs/x86" />
+        <source-file src="platforms/android/libs/xwalkcore_armeabi-v7a.so" target-dir="app/src/main/jniLibs/x86_64" />
+        <source-file src="platforms/android/libs/xwalkcore_armeabi-v7a.so" target-dir="app/src/main/jniLibs/arm64-v8a" />
 
         <framework src="platforms/android/xwalk.gradle" custom="true" type="gradleReference"/>
 
