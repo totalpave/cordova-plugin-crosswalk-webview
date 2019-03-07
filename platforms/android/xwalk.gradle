@@ -57,6 +57,14 @@ def getConfigPreference(name) {
     return ret ? ret : defaultValue
 }
 
+// android {
+//     sourceSets {
+//         main {
+//             jniLibs.srcDirs = ["../libs"]
+//         }
+//     }
+// }
+
 if (!project.hasProperty('xwalk64bit')) {
     ext.xwalk64bit = getConfigPreference("xwalk64bit");
     println xwalk64bit
@@ -107,11 +115,11 @@ cdvPluginPostBuildExtras.add({
     if (xwalkMode == LITE_MODE) {
         xwalkMavenRepo = 'https://download.01.org/crosswalk/releases/crosswalk-lite/android/maven2';
     }
-    repositories {
-      maven {
-        url xwalkMavenRepo
-      }
-    }
+    // repositories {
+    //   maven {
+    //     url xwalkMavenRepo
+    //   }
+    // }
 
     //This is not necessary anymore, because cordova already has these config lines in their build.gradle
     //This will override their configuration, and break their versionCode scheme.
@@ -160,9 +168,9 @@ cdvPluginPostBuildExtras.add({
     }
     println xwalkSpec
 
-    dependencies {
-        implementation xwalkSpec
-    }
+    // dependencies {
+    //     implementation xwalkSpec
+    // }
 
     if (file('assets/xwalk-command-line').exists()) {
         println('Not writing assets/xwalk-command-line since file already exists.')
