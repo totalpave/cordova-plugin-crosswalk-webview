@@ -111,10 +111,15 @@ if (!project.hasProperty('xwalkCommandLine')) {
 }
 // Apply values after project's build-extras.gradle
 cdvPluginPostBuildExtras.add({
-    def xwalkMavenRepo = 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2';
-    if (xwalkMode == LITE_MODE) {
-        xwalkMavenRepo = 'https://download.01.org/crosswalk/releases/crosswalk-lite/android/maven2';
+    repositories {
+        maven {
+            url "https://maven.totalpave.com"
+        }
     }
+    // def xwalkMavenRepo = 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2';
+    // if (xwalkMode == LITE_MODE) {
+    //     xwalkMavenRepo = 'https://download.01.org/crosswalk/releases/crosswalk-lite/android/maven2';
+    // }
     // repositories {
     //   maven {
     //     url xwalkMavenRepo
@@ -123,7 +128,7 @@ cdvPluginPostBuildExtras.add({
 
     //This is not necessary anymore, because cordova already has these config lines in their build.gradle
     //This will override their configuration, and break their versionCode scheme.
-
+    //
     // android {
     //     if (xwalk64bit != null) {
     //         productFlavors {
@@ -143,34 +148,41 @@ cdvPluginPostBuildExtras.add({
     //     }
     // }
 
-    def xwalkSpec = xwalkVersion
-    if (ext.xwalkMode == LITE_MODE) {
-        xwalkSpec = xwalkLiteVersion;
-    }
-
-    if ((xwalkSpec =~ /:/).count == 1) {
-        xwalkSpec = DEFAULT_GROUP_ID + xwalkSpec
-    } else if ((xwalkSpec =~ /:/).count == 0) {
-        if (xwalkSpec ==~ /\d+/) {
-            xwalkSpec = "${xwalkSpec}+"
-        }
-
-        def artifactid = EMBEDD_ARTIFACT_ID;
-        if (ext.xwalkMode == SHARED_MODE) {
-            artifactid = SHARED_ARTIFACT_ID;
-        } else if (ext.xwalkMode == LITE_MODE) {
-            artifactid = CANARY_ARTIFACT_ID;
-        }
-        xwalkSpec = DEFAULT_GROUP_ID + artifactid + xwalkSpec
-    }
-    if (xwalk64bit != null) {
-        xwalkSpec = xwalkSpec + BIT_64
-    }
-    println xwalkSpec
-
-    // dependencies {
-    //     implementation xwalkSpec
+    // def xwalkSpec = xwalkVersion
+    // if (ext.xwalkMode == LITE_MODE) {
+    //     xwalkSpec = xwalkLiteVersion;
     // }
+
+    // if ((xwalkSpec =~ /:/).count == 1) {
+    //     xwalkSpec = DEFAULT_GROUP_ID + xwalkSpec
+    // } else if ((xwalkSpec =~ /:/).count == 0) {
+    //     if (xwalkSpec ==~ /\d+/) {
+    //         xwalkSpec = "${xwalkSpec}+"
+    //     }
+
+    //     def artifactid = EMBEDD_ARTIFACT_ID;
+    //     if (ext.xwalkMode == SHARED_MODE) {
+    //         artifactid = SHARED_ARTIFACT_ID;
+    //     } else if (ext.xwalkMode == LITE_MODE) {
+    //         artifactid = CANARY_ARTIFACT_ID;
+    //     }
+    //     xwalkSpec = DEFAULT_GROUP_ID + artifactid + xwalkSpec
+    // }
+    // if (xwalk64bit != null) {
+    //     xwalkSpec = xwalkSpec + BIT_64
+    // }
+    // 
+    
+    def xwalkSpec = "com.totalpave:xwalk:23"
+
+    println "xwalkSpec"
+    println xwalkSpec
+    println ""
+
+    dependencies {
+        implementation xwalkSpec
+    }
+    // 
 
     if (file('assets/xwalk-command-line').exists()) {
         println('Not writing assets/xwalk-command-line since file already exists.')
