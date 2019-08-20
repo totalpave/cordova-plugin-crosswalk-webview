@@ -47,6 +47,7 @@
   },
   "homepage": "https://github.com/crosswalk-project/cordova-plugin-crosswalk-webview",
   "dependencies": {
+    "elementtree": "^0.1.7",
     "q": "^1.5.1"
   }
 }

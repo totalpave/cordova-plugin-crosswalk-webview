@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+var fs = require('fs'),
+    path = require('path'),
+    et = require('elementtree');
+
 module.exports = function(context) {
 
     var ConfigParser, XmlHelpers;
@@ -12,10 +16,10 @@ module.exports = function(context) {
         XmlHelpers = context.requireCordovaModule("cordova-lib/src/util/xml-helpers");
     }
 
-    /** @external */
-    var fs = context.requireCordovaModule('fs'),
-        path = context.requireCordovaModule('path'),
-        et = context.requireCordovaModule('elementtree');
+    // /** @external */
+    // var fs = context.requireCordovaModule('fs'),
+    //     path = context.requireCordovaModule('path'),
+    //     et = context.requireCordovaModule('elementtree');
 
     /** @defaults */
     var xwalkVariables = {},
