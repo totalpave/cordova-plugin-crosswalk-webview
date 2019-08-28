@@ -109,7 +109,7 @@ You can also set user agent with the preference of xwalkUserAgent.
 
 ### Release Notes
 
-#### 2.4.0
+#### 2.4.0 (January 18, 2018)
 * Keep compatibility with cordova-android 7.0 project structure
 
 #### 2.3.0 (January 21, 2017)
