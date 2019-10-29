@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+/*
+Modifications:
+- Changed imports to use require for non-cordova modules.
+*/
+
 var deferral = require('q').defer();
 
 module.exports = function(context) {

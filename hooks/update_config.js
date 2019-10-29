@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+/*
+Modifications:
+- Changed imports to use require for non-cordova modules.
+*/
+
 var fs = require('fs'),
     path = require('path'),
     et = require('elementtree');
